@@ -2,20 +2,17 @@ package com.example.esameispw_17_02_2022;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+
 
 public class SortingStrings {
 
     /**
-     * Avviato il programma, bisognerà prima inserire sul terminale il numero di stringhe di cui si vuole fare il sort,
-     * in seguito andranno inserite tante stringhe da terminale quanto era il numero precedentemente inserito,
-     * ed infine il metodo sort() le ordinerà e le inserirà in una List<String>
-     *
+     * Il programma riceve in input una lista di stringhe, le ordina, e restituisce una lista ordinata.
      * Non stampo niente su terminale per non avere code smells
      *
      */
 
-    public static List<String> sortStrings(){
+    public static List<String> sortStrings(List<String> list){
 
         //Variabili
         int i, j;
@@ -24,16 +21,14 @@ public class SortingStrings {
 
         List<String> finalList = new ArrayList<>();
 
-        //Inserisci da terminale il numero di stringhe che si vuole ordinare
-        Scanner ts = new Scanner(System.in);
-        numOfStrings = ts.nextInt();
+        numOfStrings=list.size();
 
-        //Creo un vettore, che contiene numOfStrings stringhe, che mi serve da support per gestire il sorting
+        //Creo un vettore di Strings che mi serve da support per gestire il sorting
         String [] support = new String[numOfStrings];
 
         //Inserisci tante stringhe quanto è il valore di numOfStrings
-        for(i = 0; i<numOfStrings;i++){
-            support[i] = ts.next();
+        for(i = 0; i< list.size();i++){
+            support[i] = list.get(i);
         }
 
         //Sorting
@@ -63,6 +58,11 @@ public class SortingStrings {
 
 
     public static void main(String[] args) {
-        sortStrings();
+        List<String> list = new ArrayList<>();
+        list.add("Marco");
+        list.add("Luca");
+        list.add("Antonio");
+        list.add("Paolo");
+        sortStrings(list);
     }
 }
