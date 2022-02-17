@@ -21,7 +21,7 @@ public class SortingStrings {
         int numOfStrings;
         int smaller;
 
-        List<String> finalList = new ArrayList<>();
+        List<String> finalList;
         numOfStrings=list.size();
 
         //Creo un vettore di Strings che mi serve da support per gestire il sorting
