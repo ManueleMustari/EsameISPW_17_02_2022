@@ -1,6 +1,7 @@
 package com.example.esameispw_17_02_2022;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -8,26 +9,26 @@ public class SortingStrings {
 
     /**
      * Il programma riceve in input una lista di stringhe, le ordina, e restituisce una lista ordinata.
-     * Non stampo niente su terminale per non avere code smells
+     * Non stampo niente su terminale per non avere code smells.
      *
      */
 
     public static List<String> sortStrings(List<String> list){
 
         //Variabili
-        int i, j;
+        int i;
+        int j;
         int numOfStrings;
         int smaller;
 
         List<String> finalList = new ArrayList<>();
-
         numOfStrings=list.size();
 
         //Creo un vettore di Strings che mi serve da support per gestire il sorting
         String [] support = new String[numOfStrings];
 
-        //Inserisci tante stringhe quanto è il valore di numOfStrings
-        for(i = 0; i< list.size();i++){
+        //Inserisci stringhe dentro support
+        for(i = 0; i< numOfStrings;i++){
             support[i] = list.get(i);
         }
 
@@ -48,10 +49,8 @@ public class SortingStrings {
             }
         }
 
-        //Aggiungi alla lista
-        for(i = 0;i<numOfStrings;i++){
-            finalList.add(support[i]);
-        }
+        //Aggiungi alla lista finale
+        finalList = Arrays.stream(support).toList();
 
         return finalList;
     }
